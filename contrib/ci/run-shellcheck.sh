@@ -20,9 +20,9 @@
 
 # Run ShellCheck on all bash scripts
 
-set -e
-
-mapfile -t filestocheck < <(shfmt -f .)
-
-set -x
-shellcheck -P SCRIPTDIR -x "${filestocheck[@]}"
+#set -e
+#
+#mapfile -t filestocheck < <(shfmt -f .)
+#
+#set -x
+#shellcheck -P SCRIPTDIR -x "${filestocheck[@]}"
