@@ -19,6 +19,15 @@
 
 -->
 
+## Changes to support S3
+1. Added core-site.xml template and placeholder properties in the accumulo.properties required to support S3
+2. Included necessary dependencies (hadoop-aws, hadoop-client-runtime, accumulo-s3-utils, jaxb-api)
+
+* This branch of Accumulo includes
+* Read the [Accumulo documentation][docs]
+* Run the [Accumulo examples][examples] to learn how to write Accumulo clients
+* View the [Javadocs][javadocs] to learn the [Accumulo API][api]
+
 [![Apache Accumulo][logo]][accumulo]
 --
 [![Build Status][ti]][tl] [![Maven Central][mi]][ml] [![Javadoc][ji]][jl] [![Apache License][li]][ll]
