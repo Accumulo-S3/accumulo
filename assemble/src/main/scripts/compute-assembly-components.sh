@@ -36,7 +36,7 @@ function createIncludeLines() {
       artifactId="${JAR[1]}"
       echo "        <include>${groupId}:${artifactId}</include>"
     done
-  } | sort -u | paste -sd'%'
+  } | sort -u | paste -sd'%' -
 }
 
 sed -e "s|^.*INCLUDE BUNDLED DEPS HERE.*\$|$(createIncludeLines)|" "$template" | tr "%" "\n" >"$out"

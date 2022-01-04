@@ -114,6 +114,14 @@
   <properties>
     <!-- used for filtering the java source with the current version -->
     <accumulo.release.version>${project.version}</accumulo.release.version>
+    <auto-service.version>1.0.1</auto-service.version>
+    <!-- Adds support for S3 to be used as the underlying file system. Should match hadoop-aws depedency version -->
+    <aws.java.sdk.version>1.12.262</aws.java.sdk.version>
+    <!--    &lt;!&ndash; bouncycastle version for test dependencies &ndash;&gt;-->
+    <!--    <bouncycastle.version>1.70</bouncycastle.version>-->
+    <!--    &lt;!&ndash; Curator version &ndash;&gt;-->
+    <!--    <curator.version>5.3.0</curator.version>-->
+    <!--    <errorprone.version>2.18.0</errorprone.version>-->
     <!-- avoid error shutting down built-in ForkJoinPool.commonPool() during exec:java tasks -->
     <exec.cleanupDaemonThreads>false</exec.cleanupDaemonThreads>
     <extraTestArgs />
@@ -122,6 +130,10 @@
     <failsafe.forkCount>1</failsafe.forkCount>
     <failsafe.groups />
     <failsafe.reuseForks>false</failsafe.reuseForks>
+    <hadoop.version>3.3.5-datablock-tag</hadoop.version>
+    <htrace.hadoop.version>4.1.0-incubating</htrace.hadoop.version>
+    <it.failIfNoSpecifiedTests>false</it.failIfNoSpecifiedTests>
+    <jaxb.api.version>2.3.1</jaxb.api.version>
     <!-- prevent introduction of new compiler warnings -->
     <maven.compiler.failOnWarning>true</maven.compiler.failOnWarning>
     <maven.compiler.release>11</maven.compiler.release>
@@ -247,6 +259,11 @@
         <scope>import</scope>
       </dependency>
       <dependency>
+        <groupId>com.amazonaws</groupId>
+        <artifactId>aws-java-sdk-bundle</artifactId>
+        <version>${aws.java.sdk.version}</version>
+      </dependency>
+      <dependency>
         <groupId>com.beust</groupId>
         <artifactId>jcommander</artifactId>
         <version>1.82</version>
@@ -329,7 +346,12 @@
         <version>1.2</version>
       </dependency>
       <dependency>
-        <!-- legacy junit version specified here for dependency convergence -->
+        <groupId>javax.xml.bind</groupId>
+        <artifactId>jaxb-api</artifactId>
+        <version>${jaxb.api.version}</version>
+      </dependency>
+      <!-- legacy junit version specified here for dependency convergence -->
+      <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>4.13.2</version>
@@ -475,6 +497,11 @@
         <groupId>org.apache.datasketches</groupId>
         <artifactId>datasketches-java</artifactId>
         <version>4.1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-aws</artifactId>
+        <version>${hadoop.version}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.hadoop</groupId>
@@ -696,6 +723,12 @@
       <optional>true</optional>
     </dependency>
   </dependencies>
+  <repositories>
+    <repository>
+      <id>codeartifact</id>
+      <url>https://focusedleap-347653770938.d.codeartifact.us-east-2.amazonaws.com/maven/accumulo-s3-utils/</url>
+    </repository>
+  </repositories>
   <build>
     <pluginManagement>
       <plugins>
