@@ -131,7 +131,7 @@
     <failsafe.forkCount>1</failsafe.forkCount>
     <failsafe.groups />
     <failsafe.reuseForks>false</failsafe.reuseForks>
-    <hadoop.version>3.3.4-datablock-tag</hadoop.version>
+    <hadoop.version>3.3.5-datablock-tag</hadoop.version>
     <htrace.hadoop.version>4.1.0-incubating</htrace.hadoop.version>
     <it.failIfNoSpecifiedTests>false</it.failIfNoSpecifiedTests>
     <jaxb.api.version>2.3.1</jaxb.api.version>
